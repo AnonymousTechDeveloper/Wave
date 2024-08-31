@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wave</title>
+        <link rel="icon" href="favicon.png" sizes="1x1"/>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body id="main-bg">
+        <div class="background">
+            <div class="background-image" id="bg-img"></div>
+            <div class="plist-cont">
+                <h1 class="pl-title">Playlist</h1>
+                <div class="plist-bg">
+                    <div class="plist-shadow-top"></div>
+                    <div class="plist"></div>
+                    <div class="plist-shadow-bottom"></div>
+                </div>
+                <div class="other-button-cont">
+                    <div class="playbk-cont-but" id="add-file-but" title="Add Song"><svg class="icon"><use xlink:href="#music-file-icon"></use></svg></div>
+                    <div class="playbk-cont-but" id="open-folder-but" title="Open Folder"><svg class="icon"><use xlink:href="#folder-icon"></use></svg></div>
+                    <div class="playbk-cont-but" id="lyrics-button" title="Show Lyrics"><svg class="icon"><use xlink:href="#lyric2-icon"></use><use xlink:href="#lyric3-icon"></use><use xlink:href="#lyric4-icon"></use><use xlink:href="#lyric1-icon"></use></svg></div>
+                    <div class="playbk-cont-but" id="mini-player-but" title="Open Mini Player"><svg class="icon"><use xlink:href="#popup1-icon"></use><use xlink:href="#popup2-icon"></use></svg></div>
+                </div>
+            </div>
+            <div class="album-cont">
+                <div class="album-bg">
+                    <div class="album active-album" id="album"></div>
+                    <div class="album-hole"></div>
+                </div>
+                <div class="lyrics-cont-bg" style="display: none">
+                    <div class="close-lyrics" title="Close Lyrics"><svg class="icon"><use xlink:href="#close-icon"></use></svg></div>
+                    <div class="lyrics-cont">No song playing now. <br>Play a song from your device and we'll show it's lyrics here. <br><i>(If we could find it, that is...)</i></div>
+                </div>
+            </div>
+        </div>
+        <div class="control-bar">
+            <div class="min-alb-cont"><div class="min-alb" id="mini-album"></div></div>
+            <div class="music-desc-cont">
+                <div class="music-desc" id="music-title">Music Title</div>
+                <div class="music-desc" id="music-artist">Artist</div>
+            </div>
+            <div class="controller">
+                <div class="controller-buttons">
+                    <div class="playbk-cont-but" id="shuffle-button" title="Toggle Shuffle"><svg class="icon"><use xlink:href="#shuffle1-ico"></use><use xlink:href="#shuffle2-ico"></use></svg></div>
+                    <div class="playbk-cont-but" id="prev-button" title="Play Last Song"><svg class="icon"><use xlink:href="#skip-next-icon"></use></svg></div>
+                    <div class="playbk-cont-but" id="pause-play-button" title="Pause"><svg class="icon"><use xlink:href="#pause-icon"></use><use xlink:href="#play-icon"></use></svg></div>
+                    <div class="playbk-cont-but" id="next-button" title="Play Next Song"><svg class="icon"><use xlink:href="#skip-end-icon"></use></svg></div>
+                    <div class="playbk-cont-but" id="repeat-button" title="Toggle Loop"><svg class="icon"><use xlink:href="#loop-icon"></use></svg></div>
+                </div>
+                <div class="play-control" id="play-control">
+                    <input class="slider playbk-slider" id="playbk-slider" type="range">
+                    <div class="time-stamp-cont">
+                        <div class="time-stamp plyd-pos" id="played-position">00:00</div>
+                        <div class="time-stamp msc-len" id="music-length">00:00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="other-controls">
+                <div class="vol-control">
+                    <div class="playbk-cont-but" id="mute-button" title="Toggle Mute"><svg class="icon"><use xlink:href="#vol-mute-icon"></use><use xlink:href="#vol-up1-icon"></use><use xlink:href="#vol-up2-icon"></use><use xlink:href="#vol-up3-icon"></use></svg></div>
+                    <input type="range" class="slider vol-slider" id="vol-slider"></input>
+                </div>
+            </div>
+        </div>
+        <div class="drop-box-overlay">
+            <div class="drop-box">
+                <div class="drop-box-inner-border">
+                    <div class="drop-message">
+                        Drop your music files here to add them to your playlist.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="player-tag-cont" style="display: none;">
+            <audio id="player-tag"></audio>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pause-fill icon">
+                <path id="pause-icon" d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill">
+                <path id="play-icon" d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill">
+                <path id="play-song-icon" d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-shuffle">
+                <path  id="shuffle1-ico" fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z"/>
+                <path id="shuffle2-ico" d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-repeat">
+                <path id="loop-icon" d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-skip-end-fill">
+                <path id="skip-end-icon" d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.693 3.3 4 3.678 4 4.308v7.384c0 .63.692 1.01 1.233.697L11.5 8.753V12a.5.5 0 0 0 1 0V4z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-skip-start-fill">
+                <path id="skip-next-icon" d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.54-.313 1.232.066 1.232.696v7.384c0 .63-.692 1.01-1.232.697L5 8.753V12a.5.5 0 0 1-1 0V4z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-music-fill">
+                <path id="music-file-icon" d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 6.64v1.75l-2 .5v3.61c0 .495-.301.883-.662 1.123C7.974 13.866 7.499 14 7 14c-.5 0-.974-.134-1.338-.377-.36-.24-.662-.628-.662-1.123s.301-.883.662-1.123C6.026 11.134 6.501 11 7 11c.356 0 .7.068 1 .196V6.89a1 1 0 0 1 .757-.97l1-.25A1 1 0 0 1 11 6.64z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-folder-fill">
+                <path id="folder-icon" d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-music-note-list">
+                <path id="lyric1-icon" d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+                <path id="lyric2-icon" fill-rule="evenodd" d="M12 3v10h-1V3h1z"/>
+                <path id="lyric3-icon" d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"/>
+                <path id="lyric4-icon" fill-rule="evenodd" d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-volume-mute-fill">
+                <path id="vol-mute-icon" d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-volume-up-fill">
+                <path id="vol-up1-icon" d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+                <path id="vol-up2-icon" d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+                <path id="vol-up3-icon" d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-window-stack">
+                <path id="popup1-icon" d="M4.5 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM6 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                <path id="popup2-icon" d="M12 1a2 2 0 0 1 2 2 2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10ZM2 12V5a2 2 0 0 1 2-2h9a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1Zm1-4v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8H3Zm12-1V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2h12Z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x">
+                <path id="close-icon" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+        </div>
+        <div class="notify-cont" id="notification-container"></div>
+    </body>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script>if (window.module) {module = window.module;}</script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/script.js"></script>
+</html>

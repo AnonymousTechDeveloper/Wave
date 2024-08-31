@@ -1,0 +1,40 @@
+{
+  "name": "wave",
+  "version": "1.0.0",
+  "description": "Music Player made in Electron.js",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "build": "electron-builder"
+  },
+  "author": "Ansh Malviya",
+  "license": "ISC",
+  "dependencies": {
+    "@electron/remote": "^2.0.9",
+    "dotenv": "^16.4.5",
+    "electron-squirrel-startup": "^1.0.0",
+    "ffmetadata": "^1.7.0",
+    "genius-lyrics-api": "^3.2.0",
+    "musicmetadata": "^2.0.5"
+  },
+  "devDependencies": {
+    "electron": "^22.3.27"
+  },
+  "build": {
+    "appId": "Wave",
+    "win": {
+      "target": "nsis",
+      "icon": "favicon.ico"
+    },
+    "nsis": {
+      "installerIcon": "favicon.ico",
+      "uninstallerIcon": "favicon.ico",
+      "uninstallDisplayName": "Wave Uninstaller",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": false
+    }
+  }
+}

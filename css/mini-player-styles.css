@@ -1,0 +1,294 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    -webkit-app-region: drag;
+    --foreground-red: 255;
+    --foreground-blue: 255;
+    --foreground-green: 255;
+    --foreground-color: rgb(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.81);
+    --background-color: rgb(30, 28, 29);
+    background-color: transparent;
+    overflow-y: hidden;
+}
+
+@font-face {
+    font-family: Charm;
+    src: url("../assets/sf_pro.OTF");
+}
+
+html{
+    -webkit-app-region: drag;
+    height: 100%;
+}
+
+.bg-container {
+    opacity: 0.36;
+    position: fixed;
+    border-radius: 18px;
+    height: 100%;
+    width: 100%;
+    background-image: url("../tempThumbNail.png");
+    background-size: cover;
+    background-position: center;
+    transition: opacity 540ms;
+}
+
+.main-container {
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-radius: 18px;
+    height: 100%;
+    margin: 0;
+    background-color: rgb(0, 0, 0, 0.18);
+    transition: background-color 540ms;
+}
+
+.mp-controller {
+    -webkit-app-region: drag;
+    width: 100%;
+    height: 80px;
+}
+
+.control-button-cont {
+    transform: translateY(18%);
+    display: flex;
+    width: 90%;
+    height: 45px;
+    position: relative;
+    left: 5%;
+    top: 0px;
+}
+
+.control-button {
+    -webkit-app-region: no-drag;
+    color: var(--foreground-color);
+    border-radius: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+    text-align: center;
+    vertical-align: middle;
+    border: 3px solid var(--foreground-color);
+    transition: box-shadow 300ms, background-color 300ms, border 300ms;
+}
+
+.control-button:hover {
+    box-shadow: rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.945) 0 0 6px, rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.81) 0 0 9px, rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.54) 0 0 12px;
+    background-color: var(--foreground-color);
+}
+
+.control-button:hover .icon {
+    fill: var(--background-color);
+    stroke: var(--background-color);
+}
+
+#close-icon {transform: scale(120%);}
+
+.icon {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transition: color 300ms;
+    fill: var(--foreground-color);
+    width: 16px;
+    height: 16px;
+}
+
+svg {
+    fill: var(--foreground-color);
+    stroke: var(--foreground-color);
+    stroke-width: 1px;
+    transition: fill 300ms, stroke 300ms;
+}
+
+.playback-slider-cont {
+    width: 100%;
+    height: 30px;
+}
+
+.playback-slider, .time-stamp-cont {
+    width: 82%;
+    position: relative;
+    left: 9%;
+}
+
+.slider {
+    -webkit-app-region: no-drag;
+    top: -8px;
+    margin: 0;
+    appearance: none;
+    background-color: transparent;
+}
+
+.slider::-webkit-slider-runnable-track {
+    background-color: transparent;
+    height: 0.3rem;
+    border-radius: 9px;
+    border: 1px solid var(--foreground-color);
+    transition: box-shadow 300ms;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 0.3rem;
+    width: 0.3rem;
+    border-radius: 100%;
+    background-color: var(--foreground-color);
+    position: relative;
+    top: calc(50% - .15rem);
+    transition: transform 500ms, box-shadow 500ms;
+}
+
+.slider::-webkit-slider-runnable-track:hover {
+    box-shadow: rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.6) 0 0 3px, rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.3) 0 0 9px;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(210%);
+    box-shadow: rgb(var(--foreground-red), var(--foreground-green), var(--foreground-blue)) 0 0 6px, rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.7) 0 0 9px;
+}
+
+.pb-overlay-cont {
+    height: 0.3rem;
+    width: 82%;
+    position: relative;
+    left: calc(9% + 1px);
+    border-radius: 9px;
+    top: 6px;
+}
+
+.pb-slider-overlay {
+    position: relative;
+    top: 1px;
+    height: 0.3rem;
+    width: 0px;
+    border-radius: 9px;
+    background-color: var(--foreground-color);
+}
+
+.time-stamp-cont {
+    display: flex;
+}
+
+.time-stamp {
+    font-size: 12px;
+    color: var(--foreground-color);
+    font-family: --title-font;
+    position: relative;
+    top: -6px;
+}
+
+.msc-len {
+    margin-left: auto;
+}
+
+.album {
+    background-color: var(--background-color);
+    background-size: cover;
+    background-position: center;
+    height: 73px;
+    width: 73px;
+    border-radius: 9px;
+    position: relative;
+    top: 9px;
+    margin: 0 auto 9px auto;
+    border: 3px solid var(--foreground-color);
+    box-shadow: rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.54) 0 0 3px, rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.36) 0 0 9px;
+}
+
+.song-info-cont {
+    width: 72%;
+    position: relative;
+    left: 9%;
+    padding-top: 9px;
+}
+
+.song-info {
+    font-family: Charm;
+    color: var(--foreground-color);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#song-title {
+    font-size: 21px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+#song-artist {
+    font-size: 15px;
+    position: relative;
+    top: -3px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+.active-button {
+    background-color: rgba(var(--foreground-red), var(--foreground-green), var(--foreground-blue), 0.36);
+    color: var(--background-color);
+}
+
+.close-button, .switch-mode-but {
+    -webkit-app-region: no-drag;
+    background-color: var(--background-color);
+    position: fixed;
+    height: 27px;
+    width: 36px;
+    text-align: center;
+    transition: background-color 600ms;
+    border: 3px solid var(--foreground-color);
+}
+
+.close-button {
+    top: 0;
+    left: calc(100% - 36px);
+    background-color: transparent;
+    border: 3px solid red;
+    border-width: 0 0 3px 3px;
+    border-radius: 0 22px 0 9px;
+    color: rgb(255, 0, 0);
+}
+.close-button:hover {
+    background-color: rgb(255, 0, 0);
+    color: var(--background-color);
+}
+.switch-mode-but:hover {
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+}
+.close-button:hover svg {
+    fill: var(--background-color);
+    stroke: var(--background-color);
+}
+
+.switch-mode-but:hover > div {
+    border-color: var(--background-color);
+}
+
+.switch-mode-but {
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    border-width: 0 3px 3px 0;
+    border-radius: 18px 0 9px 0;
+    color: var(--foreground-color);
+}
+
+.win-icon {
+    height: 12px;
+    width: 12px;
+    border: 3px solid var(--foreground-color);
+    border-radius: 3px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: height 600ms, width 600ms, border-color 300ms;
+}

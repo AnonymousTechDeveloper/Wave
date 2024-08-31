@@ -1,0 +1,22 @@
+# env files
+.env
+
+# debug-purpose files 
+test.js
+*.log
+
+# IDE specific files/folders
+.vscode/
+
+# local temp files
+*.jpg
+savedData.json
+
+# modules
+node_modules
+
+# other dev-purpose files
+new-mini-player-styles.css
+new-mini-player.html
+license.md
+package-lock.json
